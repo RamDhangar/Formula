@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ram dhangar</title>
+    <link rel="stylesheet" href="style.csss">
+    <script>
+        function myFunction() {
+        let value = document.getElementById('input').value;
+        let result = value/13;
+        document.getElementById('result').innerHTML = result;
+        }
+        document.addEventListener('keypress', function(event) {
+            if (event.key === "Enter") {
+                myFunction();
+            }
+        }, false);
+    </script>
+</head>
+<body>
+    <div class="container" style="display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; flex-direction: column;"> 
+        <input type="text" id="input" value="" placeholder="Enter Value" style="width: 200px; height: 35px; margin: 10px; border: 1px solid blue;">
+        <div id="result" style="width: 200px; font-size: 15px; margin: 10px; border: 1px solid black; padding: 5px;">Press Enter for Value</div>
+    </div>
+</body>
+</html>
