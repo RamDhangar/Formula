@@ -18,13 +18,17 @@
         }
     </style>
     <script>
+        let focused = null;
        function cusomFocus() {
+            focused = 3;
             document.getElementById("result3").innerHTML = "Click for Result";
         }
        function threeFocus() {
+            focused = 1;
             document.getElementById("result1").innerHTML = "Click for Result";
         }
        function sixFocus() {
+            focused = 2;
             document.getElementById("result2").innerHTML = "Click for Result";
         }
       function threeStep() {
@@ -51,7 +55,11 @@
         "keypress",
         function (event) {
           if (event.key === "Enter") {
-            myFunction();
+            if (focused) {
+                if (focused == 1) threeStep();
+                if (focused == 2) sixStep();
+                if (focused == 3) customStep();
+            }
           }
         },
         false
