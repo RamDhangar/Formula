@@ -1,27 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ram dhangar</title>
-    <link rel="stylesheet" href="style.csss">
-    <script>
-        function myFunction() {
-        let value = document.getElementById('input').value;
-        let result = value/13;
-        document.getElementById('result').innerHTML = result;
+    <style>
+        .inner-container {
+            display: flex;
+            flex-direction: column;
+            background: wheat;
+            padding: 10px;
+            margin: 10px 0;
+            width: 280px;
         }
-        document.addEventListener('keypress', function(event) {
-            if (event.key === "Enter") {
-                myFunction();
-            }
-        }, false);
+        .inner-container h4 {
+            margin: 0;
+        }
+    </style>
+    <script>
+       function cusomFocus() {
+            document.getElementById("result3").innerHTML = "Click for Result";
+        }
+       function threeFocus() {
+            document.getElementById("result1").innerHTML = "Click for Result";
+        }
+       function sixFocus() {
+            document.getElementById("result2").innerHTML = "Click for Result";
+        }
+      function threeStep() {
+        let value = document.getElementById("input1").value;
+        let result = value / 13;
+        document.getElementById("result1").innerHTML = result;
+      }
+      function sixStep() {
+        let value = document.getElementById("input2").value;
+        let result = value / 364;
+        document.getElementById("result2").innerHTML = result;
+      }
+      function customStep() {
+        x = 1;
+        let pow = parseInt(document.getElementById('steps').value);
+        let value = document.getElementById("input3").value;
+        for (let i = 1; i< pow; i++) {
+            x += Math.pow(3, i);
+        }
+        let result = value / x;
+        document.getElementById("result3").innerHTML = result;
+      }
+      document.addEventListener(
+        "keypress",
+        function (event) {
+          if (event.key === "Enter") {
+            myFunction();
+          }
+        },
+        false
+      );
     </script>
-</head>
-<body>
-    <div class="container" style="display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; flex-direction: column;"> 
-        <input type="text" id="input" value="" placeholder="Enter Value" style="width: 200px; height: 35px; margin: 10px; border: 1px solid blue;">
-        <div id="result" style="width: 200px; font-size: 15px; margin: 10px; border: 1px solid black; padding: 5px;">Press Enter for Value</div>
+  </head>
+  <body>
+    <div
+      class="container"
+      style="
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      "
+    >
+    <div class="inner-container">
+        <h4>Calculate for 3 Steps</h4>
+        <input
+          type="text"
+          id="input1"
+          onfocus="threeFocus()"
+          value=""
+          placeholder="Enter Value"
+          style="width: 200px; height: 35px; margin: 10px; border: 1px solid blue"
+        />
+        <div
+          id="result1"
+          onclick="threeStep()"
+          style="
+            width: 200px;
+            font-size: 15px;
+            margin: 10px;
+            border: 1px solid black;
+            padding: 5px;
+            background: white;
+          "
+        >
+          Click for Result
+        </div>
     </div>
-</body>
+    <div class="inner-container">
+        <h4>Calculate for 6 Steps</h4>
+        <input
+          type="text"
+          id="input2"
+          onfocus="sixFocus()"
+          value=""
+          placeholder="Enter Value"
+          style="width: 200px; height: 35px; margin: 10px; border: 1px solid blue"
+        />
+        <div
+          id="result2"
+          onclick="sixStep()"
+          style="
+            width: 200px;
+            font-size: 15px;
+            margin: 10px;
+            border: 1px solid black;
+            padding: 5px;
+          "
+        >
+          Click for Result
+        </div>
+    </div>
+    <div class="inner-container">
+        <h4>Calculate for Custom</h4>
+        <div style="display: flex; align-items:  center;">
+            <div>
+              <select name="steps" id="steps" onfocus="cusomFocus()" style="height: 28px; width: 40px;">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <input
+          type="text"
+          onfocus="cusomFocus()"
+          id="input3"
+          value=""
+          placeholder="Enter Value"
+          style="width: 200px; height: 32px; margin: 10px; border: 1px solid blue"
+        />
+
+    </div>
+        <div
+          id="result3"
+          onclick="customStep()"
+          style="
+            width: 200px;
+            font-size: 15px;
+            margin: 10px;
+            border: 1px solid black;
+            padding: 5px;
+            background: white;
+          "
+        >
+          Click for Value
+        </div>
+
+    </div>
+    </div>
+  </body>
 </html>
